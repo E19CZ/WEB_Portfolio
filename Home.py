@@ -15,7 +15,7 @@ with col2:
 
 st.write("Below you can find some of the apps I have built in Python. Feel free to contact me!")
 
-col3, empty_col, col4 = st.columns(1.5, 0.5, 1.5)
+col3, empty_col, col4 = st.columns([1.5, 0.5, 1.5])
 
 df = pandas.read_csv("data.csv", sep=";")
 with col3:
@@ -23,11 +23,12 @@ with col3:
         st.header(row["title"])
         st.write(row["description"])
         st.image("images/" + row["image"])
-        st.write("[Source Code](https://pythonhow.com")
+        # GitHub links
+        st.write(f"[Source Code]({row['url']})")
 
 with col4:
     for index, row in df[10:].iterrows():
         st.header(row["title"])
         st.write(row["description"])
         st.image("images/" + row["image"])
-        st.write("[Source Code](https://pythonhow.com")
+        st.write(f"[Source Code]({row['url']})")
